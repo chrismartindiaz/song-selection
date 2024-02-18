@@ -1,4 +1,3 @@
 pandas
-pip install scikit-learn
-scikit-learn
+scikit-learn==1.2.2
 streamlit
