@@ -39,8 +39,14 @@ if st.button("¡Sorpréndeme!"):
     if len(filtered_songs) >= 3:
         selected_songs = filtered_songs.sample(3)
         st.write("¡Aquí tienes tres canciones que podrían sorprenderte!")
-        st.write(selected_songs[['id']])
+
+        # Generar iframes de Spotify con los ID de las canciones
+        for index, song in selected_songs.iterrows():
+            iframe_code = f"""
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/{song['id']}?utm_source=generator" 
+            width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; 
+            encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            """
+            st.write(iframe_code, unsafe_allow_html=True)
     else:
         st.write("Lo siento, no hay suficientes canciones que cumplan con esas características.")
-
-# Nota: Asegúrate de adaptar los nombres de las columnas y modelos según tus archivos y datos.
