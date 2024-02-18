@@ -3,13 +3,13 @@ import pandas as pd
 import joblib
 
 # Cargar el modelo de predicción de 'mood'
-lr_model = joblib.load('modelo_lr_mood.pkl')
+lr_model = joblib.load('./src/modelo_lr_mood.pkl')
 
 # Cargar el modelo de predicción de 'motivation'
-LinearSVC_model = joblib.load('modelo_linearSVC_motivation.pkl')
+LinearSVC_model = joblib.load('./src/modelo_linearSVC_motivation.pkl')
 
 # Cargar el DataFrame de canciones procesadas
-processed_songs = pd.read_csv('processed_songs_full.csv')
+processed_songs = pd.read_csv('./src/processed_songs_full.csv')
 
 # Interfaz de usuario con Streamlit
 st.title("¡Sorpréndeme con una canción!")
