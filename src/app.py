@@ -2,16 +2,12 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-# Cargar el modelo de predicción de 'mood'
 lr_model = joblib.load('./src/modelo_lr_mood.pkl')
 
-# Cargar el modelo de predicción de 'motivation'
 LinearSVC_model = joblib.load('./src/modelo_linearSVC_motivation.pkl')
 
-# Cargar el DataFrame de canciones procesadas
 processed_songs = pd.read_csv('./src/processed_songs_full.csv')
 
-# Interfaz de usuario con Streamlit
 st.title("¡Sorpréndeme con una canción!")
 
 # Selección de ánimo (mood)
@@ -26,16 +22,16 @@ selected_motivation = st.radio("¿Prefieres motivarte o estar más tranquilo?", 
 decade_options = ['1980s', '1990s', '2000s', '2010s', '2020s']
 selected_decade = st.selectbox("¿Con qué década te encuentras más familiarizado?", decade_options)
 
-# Botón para sorprender
+# Botón submit
 if st.button("¡Sorpréndeme!"):
-    # Filtrar el DataFrame con las selecciones del usuario
+    # Filtramos el DataFrame con las selecciones del usuario
     filtered_songs = processed_songs[
         (processed_songs['mood'] == mood_options[selected_mood]) &
         (processed_songs['motivation'] == motivation_options[selected_motivation]) &
         (processed_songs['release_decade'] == selected_decade)
     ]
 
-    # Mostrar 3 canciones que cumplen con las características
+    # Mostramos 3 canciones aleatorias que cumplen con las características seleccionadas por el usuario
     if len(filtered_songs) >= 3:
         selected_songs = filtered_songs.sample(3)
         st.write("¡Aquí tienes tres canciones que podrían sorprenderte!")
