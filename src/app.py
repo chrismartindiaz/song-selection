@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
-
+import scikit-learn
 # Cargar el modelo de predicción de 'mood'
 lr_model = joblib.load('modelo_lr_mood.pkl')
 
