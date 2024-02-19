@@ -45,7 +45,7 @@ if st.button("¡Sorpréndeme!"):
                 width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; 
                 encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 """
-    st.write(iframe_code, unsafe_allow_html=True)
+                st.write(iframe_code, unsafe_allow_html=True)
 
     else:
         st.write("Lo siento, no hay suficientes canciones que cumplan con esas características.")
