@@ -40,7 +40,7 @@ if st.button("¡Sorpréndeme!"):
             iframe_code = f"""
             <iframe style="border-radius:12px; background-color: transparent;" 
             src="https://open.spotify.com/embed/track/{song['id']}?utm_source=generator" 
-            width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay allowtransparency="true"; clipboard-write; 
+            width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay" allowtransparency="true"; clipboard-write; 
             encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             """
             st.write(iframe_code, unsafe_allow_html=True)
